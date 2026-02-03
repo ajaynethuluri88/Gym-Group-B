@@ -1,0 +1,6 @@
+- hosts: webserver
+  become: Yes
+  tasks:
+  - package: name=httpd state=latest
+  - copy: src=/var/lib/jenkins/workspace/ansible/index.html dest=/var/www/html/index.html
+  - service: name=httpd state=started
